@@ -12,4 +12,29 @@ function sanitizeInput($input) {
 function isAdmin() {
     return isset($_SESSION['user_id']) && $_SESSION['user_role'] === 'admin';
 }
+
+function fetchDepartments() {
+    $conn = db_connect();
+    $query = "SELECT * FROM Departments";
+    $result = mysqli_query($conn, $query);
+    $departments = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $departments[] = $row;
+    }
+    mysqli_close($conn);
+    return $departments;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>

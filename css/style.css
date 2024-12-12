@@ -34,6 +34,34 @@ background: none;
     font-size: 1rem;
     margin-top: 100px;
 }
+
+.glass-btn {
+  padding: 12px;
+  margin: 20px;
+  width: 65%;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  background-color: #0004;
+  box-shadow: inset -3px -3px rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 1rem;
+}
+
+.glass-btn:hover {
+transform: translateY(-0.1em);
+box-shadow: 
+  0 -0.2em 0.4em #0002,
+  0 0.3em 0.5em hsl(220, 90%, 70% / 0.5),
+  0 0 0 0.2em hsl(220, 90%, 70% / 0.5),
+  0 0.2em 0.4em hsl(220, 90%, 70% / 0.5) inset,
+  0 -0.05em 0.2em hsl(220, 90%, 70% / 0.4) inset,
+  0 -0.3em 1.2em 0.3em hsl(220, 90%, 70% / 0.3) inset,
+  0 0.7em 0 hsl(220, 90%, 70% / 0.3) inset,
+  0 2.2em 1.2em #0004;
+backdrop-filter: blur(0.2em);
+}
+
 .about{
   padding: 12px;
   margin: 20px;

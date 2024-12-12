@@ -33,3 +33,50 @@ include '../includes/header.php';
         $stmt->execute([$user_id]);
         $past_bookings = $stmt->fetchAll();
 ?>
+//past upcoming tables 
+<div class="bookings-section">
+        <div class="upcoming-bookings">
+                <h3>Upcoming Bookings</h3>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Room Name</th>
+                                    <th>Start Time</th>
+                                    <th>End Time</th>
+                                </tr>
+                            </thead>
+                    <tbody>
+                        <?php foreach ($upcoming_bookings as $booking): ?>
+                            <tr>
+                                <td><?php echo $booking['room_name']; ?></td>
+                                <td><?php echo date('F j, Y, g:i a', strtotime($booking['start_time'])); ?></td>
+                                <td><?php echo date('F j, Y, g:i a', strtotime($booking['end_time'])); ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+        <     /table>
+    </div>
+    <div class="past-bookings">
+        <h3>Past Bookings</h3>
+        table class="table">
+            <thead>
+                <tr>
+                    <th>Room Name</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($past_bookings as $booking): ?>
+                    <tr>
+                        <td><?php echo $booking['room_name']; ?></td>
+                        <td><?php echo date('F j, Y, g:i a', strtotime($booking['start_time'])); ?></td>
+                        <td><?php echo date('F j, Y, g:i a', strtotime($booking['end_time'])); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<?php include '../includes/footer.php'; ?>

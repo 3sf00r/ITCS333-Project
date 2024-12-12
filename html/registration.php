@@ -6,6 +6,34 @@ include '../includes/background.php'; // Include background styling
 function isAdmin2() {
     return isset($_SESSION['user_id']) && $_SESSION['user_role'] === 'admin'; 
 }
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Sanitize user inputs
+    $name = sanitizeInput($_POST['name']); 
+    $email = sanitizeInput($_POST['email']);
+    $password = sanitizeInput($_POST['password']); 
+
+    // Handle file upload (details added in later steps)
+    $profile_picture = $_FILES['profile_picture']; 
+
+    // Validate email address
+    if (preg_match('/^[a-zA-Z]+@uob.edu.bh$|^[0-9]+@stu.uob.edu.bh$/', $email)) { 
+        // Hash the password
+        $hashed_password = hashPassword($password); 
+
+        // ... (File upload handling) ... 
+
+        // Insert user data into the database
+        try {
+            $stmt = $pdo->prepare("INSERT INTO users (name, email, password, profile_picture) VALUES (:name, :email, :password, :profile_picture)");
+            $stmt->execute(['name' => $name, 'email' => $email, 'password' => $hashed_password, 'profile_picture' => $target_file]); 
+            echo "<script>alert('User Registered Successfully'); window.location.href='login.php';</script>";
+        } catch (\PDOException $e) {
+            echo '<div class="alert alert-danger">' . $e->getMessage() . '</div>';
+        } 
+    } else {
+        echo "<script>alert('Invalid UoB email address.');</script>";
+    }
+}
 
 ?>
 

@@ -41,5 +41,15 @@ if (!isset($_SESSION['user_id'])) {
                 <?php endforeach; ?>
             </ul>
         </div>
+<div class="col-md-6">
+        <h3>Past Bookings</h3>
+            <ul>
+                <?php foreach ($past_bookings as $booking): ?>
+                    <li><?php echo $booking['room_name']; ?> - Date: <?php echo date('F j, Y', strtotime($booking['start_time'])); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</div>
 </body>
 <?php include '../includes/footer.php'; ?>

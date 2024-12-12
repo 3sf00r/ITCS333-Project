@@ -1,53 +1,29 @@
 <?php
 session_start();
-include '../includes/db_connect.php';
-include '../includes/background.php';
-
-function isAdmin2() {
-    return isset($_SESSION['user_id']) && $_SESSION['user_role'] === 'admin';
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
 }
+include '../includes/header.php';
+include '../includes/db_connect.php';
+include '../includes/functions.php';
 
+
+// Fetch user data based on the user_email in the session
+
+$target_dir = "../uploads/";
+
+// Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = sanitizeInput($_POST['name']);
-    $email = sanitizeInput($_POST['email']);
+    $confirmPassword = sanitizeInput($_POST['confirmPassword']);
     $password = sanitizeInput($_POST['password']);
+    $email = $_SESSION['user_email'];
     $profile_picture = $_FILES['profile_picture'];
-
-    if (preg_match('/^[a-zA-Z]+@uob\.edu\.bh$|^[0-9]+@stu\.uob\.edu\.bh$/', $email)) {
-        $hashed_password = hashPassword($password);
-        $target_dir = "../uploads/";
-        $target_file = $target_dir . basename($profile_picture["name"]);
+    $target_file = $target_dir . basename($profile_picture["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-            && $imageFileType != "gif") {
-            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-            $uploadOk = 0;
-        }
-
-        if ($uploadOk == 0) {
-		echo "<script>alert('Sorry, your file was not uploaded.');</script>";
-        } else {
-            if (move_uploaded_file($profile_picture["tmp_name"], $target_file)) {
-                try {
-                    $stmt = $pdo->prepare("INSERT INTO users (name, email, password, profile_picture) VALUES (:name, :email, :password, :profile_picture)");
-                    $stmt->execute(['name' => $name, 'email' => $email, 'password' => $hashed_password, 'profile_picture' => $target_file]);
-		            echo "<script>alert('User Registered Successfully'); window.location.href='login.php';</script>";
-                    } 
-                catch (\PDOException $e) {
-                    echo '<div class="alert alert-danger">' . $e->getMessage() . '</div>';
-                }
-            } else {
-		            echo "<script>alert(Sorry, there was an error uploading your file'); </script>";
-                }
-        }
-        } else {
-	        echo "<script>alert('Invalid UoB email address.');</script>";
-                }
-}
-
-?>
+        $hashed_password = hashPassword($password);
 
 <!DOCTYPE html>
 <html lang="en">

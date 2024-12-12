@@ -7,12 +7,16 @@ if (!isAdmin()) {
     exit;}
 
 ?>
-<div class="navbar">
-    <a href="booked_room.php" class="navbar-link">Booked Room</a>
-    <a href="booking_normal.php" class="navbar-link">Booking</a>
-    <a href="rooms.php" class="navbar-link">Rooms</a>
-    <a href="comments.php" class="navbar-link">Comments</a>
-</div>
+<h2 class="text-white text-center">Admin Dashboard</h2>
+
+
+	<div class=" d-flex justify-content-center">
+        <a href="booked_room.php" class="btn glass-btn">booked room</a>
+	<a href="booking_admin.php" class="btn glass-btn">booking</a>
+	<a href="rooms.php" class="btn glass-btn">rooms</a>
+	<a href="comments.php" class="btn glass-btn">comments</a>
+	<a href="admin.php" class="btn glass-btn">management panel</a>
+	</div>
 
 <?php 
         if (!isset($_SESSION['user_id'])) {

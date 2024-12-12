@@ -29,6 +29,14 @@ $start_time = $_POST['start_time'];
 
             </select>
         </div>
+      <div class="form-group">
+            <label for="list_all">List All Rooms:</label>
+            <input type="checkbox" name="list_all" id="list_all">
+        </div>
+
+        <button type="submit" name="filter" class="glass-btn">Filter</button>
+    </form>
+</div>
 </div>
 
 <?php include '../includes/footer.php'; ?>

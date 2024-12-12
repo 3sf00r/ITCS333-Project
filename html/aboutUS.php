@@ -24,3 +24,41 @@ if (isAdmin2()) {
         }
     }
 ?>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css"> 
+</div>	
+</head>
+<body>
+
+<div >
+    <h1>UOB booking system</h1>
+    <?php if (isset($_SESSION['user_id'])): ?>
+        <a href="profile.php">Profile</a> |
+        <a href="logout.php">Logout</a>
+    <?php else: ?>
+        <a class="glass-btn" href="index.php">Home</a>
+    <?php endif; ?>
+</div>
+
+
+
+  <title>About Us - College Room Booking System</title>
+  <section id="about-us">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>
+        Welcome to the College Room Booking System! We are committed to providing an efficient and user-friendly platform for students, faculty, and staff to book rooms for academic, recreational, and event purposes.
+      </p>
+      <p>
+        Our system is designed to simplify the room reservation process, ensuring accessibility, transparency, and convenience for all users. Whether you need a quiet study space, a classroom for group discussions, or a hall for events, we’ve got you covered!
+      </p>
+      <p>
+        We value your feedback and are continuously improving our services to meet your needs. Thank you for choosing our platform!
+      </p>
+    </div>
+  </section>
+    </div>
+    
+<?php
+include '../includes/footer.php'; 
+?>

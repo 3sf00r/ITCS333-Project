@@ -1,26 +1,33 @@
 <?php session_start(); 
 include '../includes/header.php';
 include '../includes/functions.php';
-
-
 if (!isAdmin()) {
     header('Location: index.php');
     exit;}
 
-function getRoomName($roomId){
-        include '../includes/db_connect.php';
+    function getRoomName($roomId)
+{
+    global $pdo;
 
-        $stmt = $pdo->prepare("SELECT name FROM rooms WHERE id = ?");
-        $stmt->execute([$roomId]);
+    $stmt = $pdo->prepare("SELECT name FROM rooms WHERE id = ?");
+    $stmt->execute([$roomId]);
+
     return $stmt->fetch(PDO::FETCH_ASSOC)['name'];
 }
 ?>
 
 <div class="main">
     <h2 class="mt-3">Comments</h2>
+
     <?php
+    // Connect to the database
+    include '../includes/db_connect.php';
+
+
     $stmt = $pdo->prepare("SELECT * FROM comments");
     $stmt->execute();
+
+    // Create a table to display the comments
     echo '<table class="table">';
     echo '<thead><tr><th>Booking ID</th><th>Room name</th><th>User Email</th><th>Comment</th><th>Date Created</th></tr></thead>';
 

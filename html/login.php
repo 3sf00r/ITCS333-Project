@@ -16,7 +16,23 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $stmt->execute(['email' => $email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
+if ($user && verifyPassword($password, $user['password'])) {
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['name'] = $user['name'];
+    $_SESSION['user_role'] = $user['role'];
+    $_SESSION['user_email'] = $user['email'];
+        if ($_SESSION['user_role']==='admin') {
+                header('Location: admin_Dashboard.php');}
+    else{
+        header('Location: Dashboard.php');
+        }
+            exit();
+        } else {
+            echo "Invalid email or password.";
+        }
+    } else {
+        echo "Invalid email format.";
+    }
     
 }
 ?>

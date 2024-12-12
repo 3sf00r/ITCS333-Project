@@ -166,3 +166,27 @@ label {
   margin-bottom: 0.5rem;
   color: #bdc3c7;
 }
+
+.rom{
+  text-align:  center;
+color: black;
+
+}
+
+.rom li {
+  padding: 10px;
+  margin: 12px;
+  border-radius: 10px;
+  width:auto;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  background-color: #0004;
+  box-shadow: inset -3px -3px rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 1rem;
+}
+
+.rom li:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.1);
+}

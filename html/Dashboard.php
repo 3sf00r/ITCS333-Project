@@ -1,4 +1,10 @@
 <?php session_start();
+
+$sql = "SELECT * FROM bookings WHERE user_id = ? AND start_time > NOW() ORDER BY start_time ASC";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bind_param('user_id', $user_id);
+        $stmt->execute();
+        $upcoming_bookings = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">

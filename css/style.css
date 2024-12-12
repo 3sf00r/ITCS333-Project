@@ -216,3 +216,35 @@ color: black;
   color: white;
   font-size: 1rem;
 }
+
+.header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      background-color:#ffffff ;
+  }
+
+  .logo-container {
+      flex: 1;
+      text-align: left;
+  }
+
+  .logo {
+      width: 120px;
+      height: 120px;
+  }
+
+  .profile-logout {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      text-align: left;
+  }
+
+  .profile-logout a {
+      text-decoration: none;
+      padding: 5px;
+      text-align: left;
+
+  }

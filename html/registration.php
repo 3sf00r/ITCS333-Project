@@ -1,3 +1,8 @@
+<?php
+session_start(); 
+include '../includes/db_connect.php'; // Connect to the database
+include '../includes/background.php'; // Include background styling 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

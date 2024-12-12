@@ -1,7 +1,7 @@
 <?php
 session_start();
-include '../includes/db_connect2.php'; 
-include '../includes/functions.php'; 
+include '../includes/db_connect2.php';
+include '../includes/functions.php';
 include '../includes/header.php';
 
 if (!isAdmin()) {
@@ -9,11 +9,23 @@ if (!isAdmin()) {
     exit;
 }
 
-if (isset($_POST['delete_room'])) {
-    deleteRoom($_POST['delete_room']);
-    header('Location: delete_rooms.php');
+$departments = fetchDepartments();
+$rooms = fetchrooms();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $department_id = $_POST['department'];
+    $name = htmlspecialchars($_POST['name']);
+    $capacity = intval($_POST['capacity']);
+    $equipment = htmlspecialchars($_POST['equipment']);
+    $type = htmlspecialchars($_POST['type']);
+    $id = getRoomIdByName($name);
+
+    editRoom($id,$department_id, $name, $capacity, $equipment, $type);
+    echo "<script>alert('room edited Successfully'); window.location.href='edit_rooms.php';</script>";
     exit;
 }
+
 ?>
 
 

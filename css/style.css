@@ -298,3 +298,45 @@ padding: 12px;
 .edit-profile-btn:hover {
   background-color: #0056b3;
 }
+@media (max-width: 768px) {
+
+  .header {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .glass-btn, .about, .select, .select2 {
+    width: 90%;
+    margin: 15px auto;
+    font-size: 0.9rem;
+  }
+
+  .main2, .main, .mainprofile {
+    width: 90%;
+    margin-top: 20px;
+  }
+
+  .navbar-link {
+    width: 80%;
+    margin: 10px auto;
+    font-size: 0.9rem;
+  }
+
+  table {
+    font-size: 0.8rem;
+    margin: 10px auto;
+    flex-direction: row-reverse;
+    display: flex;
+  }
+
+  th, td {
+    padding: 5px;
+  }
+
+  .edit-profile-btn {
+    width: 100px;
+    padding: 0.4rem;
+    font-size: 0.8rem;
+  }
+}

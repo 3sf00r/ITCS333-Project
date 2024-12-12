@@ -5,6 +5,13 @@ $sql = "SELECT * FROM bookings WHERE user_id = ? AND start_time > NOW() ORDER BY
         $stmt->bind_param('user_id', $user_id);
         $stmt->execute();
         $upcoming_bookings = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+$sql = "SELECT * FROM bookings WHERE user_id = ? AND start_time <= NOW() ORDER BY start_time DESC";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('user_id', $user_id);
+        $stmt->execute();
+        $past_bookings = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

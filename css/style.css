@@ -190,7 +190,21 @@ color: black;
 .rom li:nth-child(odd) {
   background-color: rgba(255, 255, 255, 0.1);
 }
+
 .select {
+  padding: 12px;
+  margin: 20px;
+  width: 65%;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  background-color: #0004;
+  box-shadow: inset -3px -3px rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 1rem;
+}
+
+.select2 {
   padding: 12px;
   margin: 20px;
   width: 65%;

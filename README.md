@@ -19,7 +19,7 @@ project directory
 │   ├── header.php
 │   ├── footer.php
 │   ├── db_connect.php
-│   ├── fuctions.php
+│   ├── functions.php
 │   └── 
 │
 ├── css/
@@ -32,7 +32,7 @@ project directory
 ├── html/
 │   ├── index.php
 │   ├── login.php
-│   ├── rogistartin.php
+│   ├── registaration.php
 │   ├── logout.php
 │   ├── dashboard.php
 │   ├── admin_dashboard.php

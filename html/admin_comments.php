@@ -1,55 +1,40 @@
- 
 <?php session_start(); 
 include '../includes/header.php';
 include '../includes/functions.php';
+include '../includes/db_connect.php';
+
 if (!isAdmin()) {
     header('Location: index.php');
     exit;}
 
-    function getRoomName($roomId)
-{
-    global $pdo;
-
-    $stmt = $pdo->prepare("SELECT name FROM rooms WHERE id = ?");
-    $stmt->execute([$roomId]);
-
+function getRoomName($roomId){
+        $stmt = $pdo->prepare("SELECT name FROM rooms WHERE id = ?");
+        $stmt->execute([$roomId]);
     return $stmt->fetch(PDO::FETCH_ASSOC)['name'];
 }
 ?>
 
-<?php if ($bookings): ?>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Room Name</th>
-                <th>Type</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($bookings as $booking): ?>
-                <tr>
-                    <td><?php echo htmlspecialchars($booking['room_name']); ?></td>
-                    <td><?php echo htmlspecialchars($booking['type']); ?></td>
-                    <td><?php echo date('F j, Y', strtotime($booking['start_time'])); ?></td>
-                    <td><?php echo date('g:i a', strtotime($booking['start_time'])); ?> to <?php echo date('g:i a', strtotime($booking['end_time'])); ?></td>
-                    <td>        
-                                <form action="comment.php" method="post" style="display:inline;">
-                                    <input type="hidden" name="id" value="<?php echo $booking['id']; ?>">
-                                    <input type="hidden" name="room_id" value="<?php echo $booking['room_id']; ?>">
-                                    <button type="submit" class="btn btn-danger">comment</button>
-                                </form>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-<?php else: ?>
-    <div class="alert alert-warning">No booked room found for this user.</div>
-<?php endif; ?>
+<div class="main">
+    <h2 class="mt-3">Comments</h2>
+    <?php
+    $stmt = $pdo->prepare("SELECT * FROM comments");
+    $stmt->execute();
+    echo '<table class="table">';
+    echo '<thead><tr><th>Booking ID</th><th>Room name</th><th>User Email</th><th>Comment</th><th>Date Created</th></tr></thead>';
+
+    while ($comment = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        echo '<tr>';
+        echo '<td>' . $comment['booking_id'] . '</td>';
+        echo '<td>' . getRoomName($comment['room_id']) . '</td>';
+        echo '<td>' . $comment['user_email'] . '</td>';
+        echo '<td>' . $comment['comment'] . '</td>';
+        echo '<td>' . $comment['created_at'] . '</td>';
+        echo '</tr>';
+    }
+
+    echo '</table>';
+
+    ?>
 </div>
 
 <?php include '../includes/footer.php'; ?>
-

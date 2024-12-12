@@ -32,7 +32,7 @@ project directory
 ├── html/
 │   ├── index.php
 │   ├── login.php
-│   ├── registaration.php
+│   ├── registration.php
 │   ├── logout.php
 │   ├── dashboard.php
 │   ├── admin_dashboard.php

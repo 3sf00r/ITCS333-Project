@@ -148,3 +148,16 @@ button:hover {
 button:active {
   background-color: #1f618d;
 }
+
+.bookings-section {
+      display: flex;
+      justify-content: space-between;
+  }
+
+.upcoming-bookings, .past-bookings {
+      width: 48%;
+}
+
+.table{
+  color: #ffff; 
+}

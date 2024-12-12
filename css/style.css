@@ -1,3 +1,14 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #34495e;
+  color: #fff;
+  text-align: center;
+  z-index: 1;
+}
+
 .footer{
 background: none;
 }

@@ -14,6 +14,19 @@ include 'includes/db_connect.php';
 </head>
 <body>
 
+<div class="container">
+        <h2>Login</h2>
+        <form method="POST">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="password">Password:</label>
+            <input  type="password" id="password" name="password" required><br><br>
+
+            <button class="about" type="submit">Login</button>
+        </form>
+</div>
+
 </div>
 
 <?php include 'includes/footer.php'; ?>

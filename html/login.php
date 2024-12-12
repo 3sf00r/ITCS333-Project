@@ -8,6 +8,8 @@ function isAdmin2() {
     return isset($_SESSION['user_id']) && $_SESSION['user_role'] === 'admin';
 }
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = sanitizeInput($_POST['email']);
+    $password = sanitizeInput($_POST['password']);
 }
 ?>
 

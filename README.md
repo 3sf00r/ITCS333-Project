@@ -16,20 +16,26 @@ project directory
 │
 ├── includes/
 │   ├── background.php
-│   ├── 
+│   ├── header.php
+│   ├── footer.php
+│   ├── db_connect.php
+│   ├── fuctions.php
 │   └── 
 │
 ├── css/
-│   ├── style.css
-│   ├── 
-│   └── 
+│   └── style.css
 │
 ├── img/
 │   ├──logo.png
-│   ├── 
-│   └── 
+│   └── background.webm
 │
 ├── html/
 │   ├── index.php
-│   ├── 
+│   ├── login.php
+│   ├── rogistartin.php
+│   ├── logout.php
+│   ├── dashboard.php
+│   ├── admin_dashboard.php
 │   └── 
+|
+├── uploads/

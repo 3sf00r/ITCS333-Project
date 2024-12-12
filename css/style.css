@@ -264,3 +264,24 @@ padding: 12px;
   font-size: 1rem;
   margin-top: 100px;
 }
+.edit-profile-btn {
+  width: 120px; /* Set a fixed width for the button /
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 0.5rem; / Adjust padding as needed */
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin-bottom: 1rem;
+  border: 1px solid #bdc3c7;
+  box-sizing: border-box;
+}
+
+.edit-profile-btn:hover {
+  background-color: #0056b3;
+}

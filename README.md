@@ -8,3 +8,28 @@ ALI SALMAN ALI ALDERAZI ID: 202103011 | A-BH75
 MAHMOOD FADHEL MOHAMED KADHEM ID: 202106345 | MahmoodFadhel352
 
 Section: 1
+
+
+
+project directory
+/
+│
+├── includes/
+│   ├── background.php
+│   ├── 
+│   └── 
+│
+├── css/
+│   ├── style.css
+│   ├── 
+│   └── 
+│
+├── img/
+│   ├──logo.png
+│   ├── 
+│   └── 
+│
+├── html/
+│   ├── index.php
+│   ├── 
+│   └── 

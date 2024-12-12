@@ -2,7 +2,13 @@
 session_start(); 
 include '../includes/db_connect.php'; // Connect to the database
 include '../includes/background.php'; // Include background styling 
+
+function isAdmin2() {
+    return isset($_SESSION['user_id']) && $_SESSION['user_role'] === 'admin'; 
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

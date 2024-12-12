@@ -25,7 +25,17 @@ function fetchDepartments() {
     return $departments;
 }
 
-
+function fetchrooms() {
+    $conn = db_connect();
+    $query = "SELECT * FROM rooms";
+    $result = mysqli_query($conn, $query);
+    $rooms = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rooms[] = $row;
+    }
+    mysqli_close($conn);
+    return $rooms;
+}
 
 
 

@@ -20,3 +20,4 @@ function isAdmin2() {
     <h1>UOB booking system</h1> 
 </body>
 </html>
+<?php include '../includes/footer.php'; ?>

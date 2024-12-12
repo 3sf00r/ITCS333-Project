@@ -1,13 +1,15 @@
 <?php session_start(); 
 include '../includes/header.php';
 include '../includes/functions.php';
-include '../includes/db_connect.php';
+
 
 if (!isAdmin()) {
     header('Location: index.php');
     exit;}
 
 function getRoomName($roomId){
+        include '../includes/db_connect.php';
+
         $stmt = $pdo->prepare("SELECT name FROM rooms WHERE id = ?");
         $stmt->execute([$roomId]);
     return $stmt->fetch(PDO::FETCH_ASSOC)['name'];

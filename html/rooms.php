@@ -26,3 +26,4 @@ $departments = fetchDepartments();
     </form>
 
     <h2 class="text-white">Departments</h2>
+<?php include '../includes/footer.php';?>

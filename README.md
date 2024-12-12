@@ -20,7 +20,7 @@ project directory
 │   ├── footer.php
 │   ├── db_connect.php
 │   ├── functions.php
-│   └── 
+│   └── db_connect2.php
 │
 ├── css/
 │   └── style.css
@@ -30,12 +30,30 @@ project directory
 │   └── background.webm
 │
 ├── html/
+│   ├── aboutUS.php
+│   ├── add_room.php
+│   ├── admin.php
+│   ├── admin_comments.php
+│   ├── admin_dashboard.php
+│   ├── booked_room.php
+│   ├── booking_admin.php
+│   ├── booking_normal.php
+│   ├── cancel_booking.php
+│   ├── comment.php
+│   ├── comments.php
+│   ├── Dashboard.php
+│   ├── delete_rooms.php
+│   ├── edit_profile.php
+│   ├── edit_rooms.php
 │   ├── index.php
 │   ├── login.php
-│   ├── registration.php
 │   ├── logout.php
-│   ├── dashboard.php
-│   ├── admin_dashboard.php
-│   └── 
+│   ├── profile.php
+│   ├── registration.php
+│   ├── rooms.php
+│   ├── room_details.php
+│ g ├── edit_rooms.php
+│   └── delete_rooms.php
 |
 ├── uploads/
+

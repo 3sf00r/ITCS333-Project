@@ -161,3 +161,8 @@ button:active {
 .table{
   color: #ffff; 
 }
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #bdc3c7;
+}

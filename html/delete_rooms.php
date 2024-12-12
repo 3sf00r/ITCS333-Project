@@ -25,7 +25,7 @@ if (isset($_POST['delete_room'])) {
                 <div class="card-body">
                     <h5><?php echo htmlspecialchars($room['name']); ?></h5>
                     <p>Capacity: <?php echo htmlspecialchars($room['capacity']); ?></p>
-                    <form method="POST" action="manage_rooms.php">
+                    <form method="POST" action="delete_rooms.php">
                         <input type="hidden" name="delete_room" value="<?php echo $room['id']; ?>">
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>

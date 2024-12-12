@@ -57,3 +57,7 @@ project directory
 |
 ├── uploads/
 
+version information: 
+PhpMyAdmin:5.2.1 
+xampp:3.3.0
+tested on firefox and brave browsers

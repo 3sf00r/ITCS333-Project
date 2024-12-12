@@ -2,6 +2,7 @@
 session_start();
 include '../includes/db_connect.php';
 include '../includes/background.php';
+include '../includes/functions.php';
 
 function isAdmin2() {
     return isset($_SESSION['user_id']) && $_SESSION['user_role'] === 'admin';

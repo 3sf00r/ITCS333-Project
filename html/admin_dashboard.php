@@ -1,6 +1,11 @@
 <?php session_start();
-include '../includes/db_connect.php'; 
 include '../includes/header.php'; 
+include '../includes/db_connect.php'; 
+include '../includes/functions.php';
+if (!isAdmin()) {
+    header('Location: index.php');
+    exit;}
+
 ?>
 <div class="navbar">
     <a href="booked_room.php" class="navbar-link">Booked Room</a>

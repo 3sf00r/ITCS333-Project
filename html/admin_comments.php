@@ -1,33 +1,21 @@
  
-<?php session_start(); include '../includes/header.php';
-if (!isset($_SESSION['user_id'])) {
-    header("Location: index.php");
-    exit();
-} ?>
+<?php session_start(); 
+include '../includes/header.php';
+include '../includes/functions.php';
+if (!isAdmin()) {
+    header('Location: index.php');
+    exit;}
 
-<div class="main">
-    <h2>Booked Room Details</h2>
+    function getRoomName($roomId)
+{
+    global $pdo;
 
-    <?php 
-        $user_email = $_SESSION['user_email'];
-        $user_id = $_SESSION['user_id'];
+    $stmt = $pdo->prepare("SELECT name FROM rooms WHERE id = ?");
+    $stmt->execute([$roomId]);
 
-        function getBookingDetails($user_id) {
-            include '../includes/db_connect.php';
-            $stmt = $pdo->prepare("SELECT b.id, r.name AS room_name, b.start_time, b.end_time, b.status ,r.type,b.room_id FROM bookings b JOIN rooms r ON b.room_id = r.id WHERE b.user_id = :user_id");
-            $stmt->bindParam(':user_id', $user_id);
-            $stmt->execute();
-
-            if ($stmt->rowCount() > 0) {
-                return $stmt->fetchAll(PDO::FETCH_ASSOC);
-            } else {
-                echo "<div class='alert alert-warning'>No booked room found for this user.</div>";
-                return false;
-            }
-        }
-
-    $bookings = getBookingDetails($user_id); 
-    ?>
+    return $stmt->fetch(PDO::FETCH_ASSOC)['name'];
+}
+?>
 
 <?php if ($bookings): ?>
     <table class="table">

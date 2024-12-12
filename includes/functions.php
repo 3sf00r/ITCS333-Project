@@ -9,4 +9,7 @@ function verifyPassword($password, $hashedPassword) {
 function sanitizeInput($input) {
     return htmlspecialchars(trim($input));
 }
+function isAdmin() {
+    return isset($_SESSION['user_id']) && $_SESSION['user_role'] === 'admin';
+}
 ?>

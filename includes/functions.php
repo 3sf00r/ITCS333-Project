@@ -6,4 +6,7 @@ function hashPassword($password) {
 function verifyPassword($password, $hashedPassword) {
     return password_verify($password, $hashedPassword);
 }
+function sanitizeInput($input) {
+    return htmlspecialchars(trim($input));
+}
 ?>

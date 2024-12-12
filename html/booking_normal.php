@@ -18,7 +18,17 @@ $start_time = $_POST['start_time'];
 
 <div class="container">
 <h2>Book a Room</h2>
+<div class="main2">
+    <h2>Room Filter</h2>
+    <form name="filterform" id="filterForm" action="" method="post">
+        <div class="form-group">
+            <label for="department_id">Select Department:</label>
+            <select name="department_id" id="department_id" class="select" onchange="toggletype()">
+                <option value="">-- Select a department --</option>
 
+
+            </select>
+        </div>
 </div>
 
 <?php include '../includes/footer.php'; ?>
